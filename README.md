@@ -7,31 +7,32 @@ Pytorch(stable 1.9.1)
 Both cuda version and cpu version are OK
 
 ## File Structure
+```
 📦FYP-U-Net
  ┣ 📂data
  ┃ ┣ 📂imgs
- ┃ ┃ ┣ 📌$\cdots$.tif
- ┃ ┃ ┗ $\cdots$
+ ┃ ┃ ┣ 📌···.tif
+ ┃ ┃ ┗ ···
  ┃ ┣ 📂masks
- ┃ ┃ ┣ 📌$\cdots$_mask.tif
- ┃ ┃ ┗ $\cdots$
+ ┃ ┃ ┣ 📌···_mask.tif
+ ┃ ┃ ┗ ···
  ┃ ┣ 📂PredictImage 
  ┃ ┃ ┣ 📌0.tif
  ┃ ┃ ┣ 📌1.tif
- ┃ ┃ ┗ $\cdots$
+ ┃ ┃ ┗ ···
  ┃ ┣ 📂SaveImage
  ┃ ┃ ┣ 📌0.tif
  ┃ ┃ ┣ 📌1.tif
- ┃ ┃ ┗ $\cdots$
+ ┃ ┃ ┗ ···
  ┃ ┗ 📂Source
  ┃ ┃ ┣ 📂TCGA_CS_4941_19960909
  ┃ ┃ ┃ ┣ 📌TCGA_CS_4941_19960909_1.tif
  ┃ ┃ ┃ ┣ 📌TCGA_CS_4941_19960909_1_mask.tif 
  ┃ ┃ ┃ ┣ 📌TCGA_CS_4941_19960909_2.tif
  ┃ ┃ ┃ ┣ 📌TCGA_CS_4941_19960909_2_mask.tif 
- ┃ ┃ ┃ ┗ $\cdots$
+ ┃ ┃ ┃ ┗ ···
  ┃ ┃ ┣ 📂TCGA_CS_4942_19970222
- ┃ ┃ ┗ $\cdots$
+ ┃ ┃ ┗ ···
  ┣ 📂params
  ┃ ┗ 📜unet.pth
  ┣ 📓README,md
@@ -39,6 +40,7 @@ Both cuda version and cpu version are OK
  ┣ 📄net.py
  ┣ 📄utils.py
  ┗ 📄train.py
+ ```
 
 * '**data**' dir contains the origin dataset in '**Source**' dir. And the dataset can be download in Kaggle (https://www.kaggle.com/c/rsna-miccai-brain-tumor-radiogenomic-classification/). And also you can use different dataset.
 * '**imgs**' contains images and '**masks**' contains corresponding masks to images. Corresponding masks have a `_mask` suffix. More inforamtion you can check in kaggle.
