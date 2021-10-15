@@ -7,6 +7,7 @@ Pytorch(stable 1.9.1)
 Both cuda version and cpu version are OK
 
 ## File Structure
+```
 📦FYP-U-Net
  ┣ 📂data
  ┃ ┣ 📂imgs
@@ -39,6 +40,7 @@ Both cuda version and cpu version are OK
  ┣ 📄net.py
  ┣ 📄utils.py
  ┗ 📄train.py
+ ```
 
 * '**data**' dir contains the origin dataset in '**Source**' dir. And the dataset can be download in Kaggle (https://www.kaggle.com/c/rsna-miccai-brain-tumor-radiogenomic-classification/). And also you can use different dataset.
 * '**imgs**' contains images and '**masks**' contains corresponding masks to images. Corresponding masks have a `_mask` suffix. More inforamtion you can check in kaggle.
