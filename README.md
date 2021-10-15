@@ -48,14 +48,20 @@ Both cuda version and cpu version are OK
 * '**params**' is meant for store model.
 
 ## Quick Up
+ Run train.py
+
+## Change DataSet
+* Delte all images in data dir and its subdir.
 * Install dataset from kaggle or anything you like(**PS. Corresponding masks must have a `_mask` suffix**) into '**Source**' dir
 * Run data.py
+
   ```
   python3 data.py
   ```
   Remember change the path.
   After this, you will get images and masks in imgs dir and masks dir.
 * Run train.py
+
   ```
   python3 train.py
   ``` 
