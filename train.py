@@ -8,6 +8,15 @@ from data import *
 from net import *
 import numpy as np
 
+
+def multi_acc(pred, label):
+    tags = torch.max(pred, dim=1)
+    corrects = (tags == label).float()
+    acc = corrects.sum() / len(corrects)
+    acc = torch.round(acc) * 100
+    return acc
+
+
 if torch.cuda.is_available():
     device = 'cuda'
     print("Using cuda")
@@ -35,7 +44,6 @@ if __name__ == '__main__':
     trainLoader = DataLoader(trainDataset, batch_size=batchSize, shuffle=True)
     testLoader = DataLoader(testDataset, batch_size=batchSize, shuffle=False)
 
-
     net = UNet().to(device)
     if os.path.exists(weightPath):
         net.load_state_dict(torch.load(weightPath))
@@ -48,6 +56,7 @@ if __name__ == '__main__':
 
     epoch = 1
     while True:
+
         for i, (image, segmentImage) in enumerate(trainLoader):
             image, segmentImage = image.to(device), segmentImage.to(device)
 
@@ -58,8 +67,14 @@ if __name__ == '__main__':
             trainLoss.backward()
             opt.step()
 
+            predImage = (outImage > 0.5).float()
+            total_point = np.prod(list(outImage.size()))
+            preds_correct_point = (predImage == segmentImage).sum().item()
+            acc = preds_correct_point / total_point
+
             if i % 5 == 0:
-                print(f'{epoch}-{i}_train loss=====>>{trainLoss.item()}')
+                print(f'{epoch}-{i}_train loss=====>>{trainLoss.item()},    ', end='')
+                print(f'{epoch}-{i}_accuracy:{acc}')
 
             if i % 50 == 0:
                 torch.save(net.state_dict(), weightPath)
@@ -82,26 +97,19 @@ if __name__ == '__main__':
                     outImage = net(image)
                     trainLoss = lossFunction(outImage, segmentImage)
 
+                    predImage = (outImage > 0.5).float()
+                    total_point = np.prod(list(outImage.size()))
+                    preds_correct_point = (predImage == segmentImage).sum().item()
+                    acc = preds_correct_point / total_point
+
                     _image = image[0]
                     _segmentImage = gray2RGB(segmentImage[0])
                     _outImage = gray2RGB(outImage[0])
 
-                    print(f'{int(epoch/5)}_{i}_test_loss=====>>{trainLoss.item()}')
+                    print(f'{int(epoch / 5)}_{i}_test_loss=====>>{trainLoss.item()},    ', end='')
+                    print(f'{epoch}-{i}_accuracy:{acc}')
 
                     testImage = torch.stack([_image, _segmentImage, _outImage], dim=0)
                     torchvision.utils.save_image(testImage, f'{predictPath}\{i}.tif')
 
             print("\n-------------------------------------------------------\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
