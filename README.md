@@ -69,7 +69,10 @@ Both cuda version and cpu version are OK
   And you can see the results in '**SaveImage**' dir and '**PredictImage**' dir.
 
 ## Results
+After 70 epochs:
 ![Segment Image](https://i.ibb.co/rGYCwLz/92.png)
+After 1500 epochs:
+![Segment Image](https://i.ibb.co/myGKcnq/image.png)
 
 ## Pre-trained model
 https://drive.google.com/file/d/1yyrITv7BQf9kDnP__g6Qa3_wUPD1c_i_/view?usp=sharing
