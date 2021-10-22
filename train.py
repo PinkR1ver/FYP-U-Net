@@ -24,7 +24,7 @@ else:
     device = 'cpu'
     print("Using CPU")
 
-basePath = r'C:\Users\83549\PycharmProjects\FYP'
+basePath = r'C:\Users\83549\Github Projects\FYP-U-Net'
 dataPath = os.path.join(basePath, 'data')
 weightPath = os.path.join(basePath, r'params\unet.pth')
 savePath = os.path.join(basePath, r'data\SaveImage')
