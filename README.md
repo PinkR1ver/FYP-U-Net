@@ -76,3 +76,4 @@ After 1500 epochs:
 
 ## Pre-trained model
 https://drive.google.com/file/d/1yyrITv7BQf9kDnP__g6Qa3_wUPD1c_i_/view?usp=sharing
+Put the .pth file into **params** dir. Out net will use it.
