@@ -1,4 +1,6 @@
 # My Final Year Project(FYP) In National University of Singapore(NUS)
+## First, I must thank for this video, he teaches me to build my first network manually, really thanks
+salute to: https://www.bilibili.com/video/BV11341127iK?from=search&seid=4525203158161865153&spm_id_from=333.337.0.0
 ## You need
 
 ```
